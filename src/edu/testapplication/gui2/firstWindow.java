@@ -5,7 +5,7 @@
  */
 package edu.testapplication.gui2;
 
-import java.io.IOException;
+
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -20,25 +21,36 @@ import javafx.stage.Stage;
  */
 public class firstWindow extends Application {
  
+            double x, y = 0;
 
     @Override
-    public void start(Stage primaryStage) {
-        
+    public void start(Stage stage) throws Exception {
+
        
-        try {
+       
             Parent root = FXMLLoader.load(getClass().getResource("inscription.fxml"));
             /*appele aux fichiet qui regroupe tout lse element graphique de notre interface */
 		
+   Scene scene = new Scene(root);
+           stage.initStyle(StageStyle.UNDECORATED);
 
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("Inscription");
-            
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            //stage.setTitle("Inscription");
+            root.setOnMousePressed(evt -> {
 
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+                x = evt.getSceneX();
+                y = evt.getSceneY();
+
+            });
+            root.setOnMouseDragged(evt -> {
+                stage.setX(evt.getScreenX()- x);
+                stage.setY(evt.getScreenY()- y);
+
+            });
+		 
+            stage.setScene(scene);
+            stage.show();
+
+       
     }
    
 

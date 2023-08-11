@@ -10,6 +10,7 @@ import edu.esprit.entities.PersonneCrud;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,9 +46,26 @@ public class InscriptionController implements Initializable {
         // TODO
     }
 
-
+  private boolean isNumber(String input) {
+        try {
+            Double.parseDouble(input); // Try to parse the input as a double
+            return true; // Parsing successful, input is a number
+        } catch (NumberFormatException e) {
+            return false; // Parsing failed, input is not a number
+        }
+    }
     @FXML
     private void addnewmember(ActionEvent event) {
+
+        if(tfId.getText().isEmpty()||!isNumber(tfId.getText())){
+   Alert alert;
+            alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input faild");
+                alert.setContentText("Please check the Id field");
+
+                alert.showAndWait();            
+        
+        }else{
               int id = Integer.parseInt(tfId.getText());
         String nom = tfNom.getText();
         String prenom = tfPrenom.getText();
@@ -70,7 +88,7 @@ public class InscriptionController implements Initializable {
             
         } catch (IOException ex) {
             System.out.println("Error:" + ex.getMessage());
-        }
+        }}
     }
     
 
