@@ -1,0 +1,150 @@
+.button{
+    -fx-background-color: #6F5CC2;
+    -fx-background-radius: 0em;
+
+
+}
+.button:hover
+{
+    -fx-background-color: #A89DDA;
+}
+.button:pressed
+{-fx-background-color: #7156DD ;
+
+}
+
+.button:focused{
+
+    -fx-background-color: #7D6CC8;
+    -fx-border-color: #CDD1D6;
+    -fx-border-width: 0px 0px 0px 3px;}
+
+.button2{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 1px 1px 1px 1px;
+    -fx-fill-color:#CDD1D6;
+    -fx-border-width: 1px 1px 1px 1px;
+
+
+}
+.button2:hover
+{
+    -fx-background-color: #EBE9F6;
+    -fx-border-color: #CDD1D6;
+    -fx-border-width: 1px 1px 1px 1px;
+}
+.button2:pressed
+{-fx-background-color: #6F5CC2 ;
+
+}
+
+.button2:focused{
+
+    -fx-background-color: #6F5CC2;
+    -fx-background-radius: 1px 1px 1px 1px;
+    -fx-text-fill:#FFFFFF;
+
+}
+
+
+table-view .column-header,
+.table-view .column-header-background .filler {
+
+    -fx-cell-size : 20;
+    -fx-background-color: #FFFFFF;
+}
+.table-view .column-header .label{
+
+    -fx-text-fill: #52438F;
+    /*-fx-font-weight: bold;*/
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fx-text-fill: #000000;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-row-cell:selected {
+
+    -fx-background-color: #EBE9F6;
+}
+.table-row-cell:selected .text {
+    -fx-fill: #52438F;
+}
+/*scrool bar strated here*/
+
+/* The increment and decrement button CSS class of scrollbar */ 
+.table-view .increment-button,.table-view .decrement-button {
+
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+}
+/* The main scrollbar **track** CSS class */ 
+.table-view .scroll-bar:horizontal .track, 
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent; 
+    -fx-border-color: rgba(113, 86, 221, 0.8); /* 80% opacity */
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
+}
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+
+    -fx-background-color: rgba(113, 86, 221, 0.9); /* 80% opacity */
+    -fx-background-insets: 2, 0, 0; 
+    -fx-background-radius: 2em;}
+/* chart properties */
+.chart {
+
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;}
+
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+
+    /*    -fx-border-color: derive (-fx-pie-color, 1%); */
+    -fx-border-width: 0px;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+
+.tab-pane
+{
+
+    -fx-tab-min-width:90px;
+        -fx-tab-min-height:30px;
+
+}
+.tab{
+    -fx-background-insets: 0 0 0 0,0,0;
+
+}
+.tab-pane .tab{
+    -fx-background-color: #FFFFFF;
+}
+.tab-pane .tab:selected
+{
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #6F5CC2;
+      -fx-border-color: #6F5CC2;
+    -fx-border-width: 0px 0px 2x 0px;}
+
+
+.tab tab-label {
+    -fx-alignment: CENTER; 
+    -fx-text-fill: #A5A9B4;
+/*    -fx-font-size: 12px; 
+    -fx-font-weight: bold;*/
+}
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #6F5CC2;
+}

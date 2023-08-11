@@ -14,8 +14,7 @@ public class Personne {
     private String prenom;
     private int id;
 
-    public Personne() {
-    }
+    public Personne() {}
 
   
 
