@@ -8,6 +8,7 @@ package edu.testapplication.gui2;
 import edu.esprit.entities.Personne;
 import edu.esprit.entities.PersonneCrud;
 import edu.esprit.utils.MyConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,8 +17,11 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,6 +45,8 @@ public class SampleController implements Initializable {
     @FXML
     private TableColumn<TableModel, String> id;
             public ObservableList<Personne> listView = FXCollections.observableArrayList();
+    @FXML
+    private Button addnew;
 
 
     /**
@@ -88,6 +94,26 @@ public class SampleController implements Initializable {
                 table.setItems(listView);
 
 
+    }
+
+    @FXML
+    private void addnewmember(ActionEvent event) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("inscription.fxml"));
+        try {
+            Parent root = loader.load();
+            
+              
+            table.getScene().setRoot(root);
+            
+            
+            
+            
+            
+        } catch (IOException ex) {
+            System.out.println("Error:" + ex.getMessage());
+        }
+        
+        
     }
 
 }
