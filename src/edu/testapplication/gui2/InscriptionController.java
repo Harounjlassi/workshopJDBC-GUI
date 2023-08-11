@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 /**
@@ -31,6 +32,7 @@ public class InscriptionController implements Initializable {
     private TextField tfNom;
     @FXML
     private TextField tfPrenom;
+     
 
    
 
@@ -43,31 +45,34 @@ public class InscriptionController implements Initializable {
         // TODO
     }
 
-//    private void savePersonne(ActionEvent event) {
-//        int id = Integer.parseInt(tfId.getText());
-//        String nom = tfNom.getText();
-//        String prenom = tfPrenom.getText();
-//        Personne p = new Personne(nom, prenom, id);
-//        PersonneCrud pc = new PersonneCrud();
-//        pc.ajouterPersonne2(p);
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsWindow.fxml"));
-//        try {
-//            Parent root = loader.load();
-//            DetailsWindowController dwc= loader.getController();
-//            dwc.setTextID(""+ p.getId());
-//            dwc.setTextNOM(p.getNom());
-//            dwc.setTextPRENOM(p.getPrenom());
-//              
-//            tfNom.getScene().setRoot(root);
-//            
-//            
-//            
-//            
-//            
-//        } catch (IOException ex) {
-//            System.out.println("Error:" + ex.getMessage());
-//        }
-//
-//    }
 
+    @FXML
+    private void addnewmember(ActionEvent event) {
+              int id = Integer.parseInt(tfId.getText());
+        String nom = tfNom.getText();
+        String prenom = tfPrenom.getText();
+        Personne p = new Personne(nom, prenom, id);
+        PersonneCrud pc = new PersonneCrud();
+        pc.ajouterPersonne2(p);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsWindow.fxml"));
+        try {
+            Parent root = loader.load();
+            DetailsWindowController dwc= loader.getController();
+            dwc.setTextID(""+ p.getId());
+            dwc.setTextNOM(p.getNom());
+            dwc.setTextPRENOM(p.getPrenom());
+              
+            tfNom.getScene().setRoot(root);
+            
+            
+            
+            
+            
+        } catch (IOException ex) {
+            System.out.println("Error:" + ex.getMessage());
+        }
+    }
+    
+
+   
 }

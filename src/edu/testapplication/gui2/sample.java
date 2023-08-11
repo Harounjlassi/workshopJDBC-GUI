@@ -7,9 +7,11 @@ package edu.testapplication.gui2;
 
 
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,6 +25,7 @@ public class sample extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+       
        // try {
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             /*appele aux fichiet qui regroupe tout lse element graphique de notre interface */
@@ -41,7 +44,7 @@ public class sample extends Application {
                 stage.setY(evt.getScreenY()- y);
 
             });
-
+		 
             stage.setScene(scene);
             stage.show();
 //        } catch (IOException ex) {

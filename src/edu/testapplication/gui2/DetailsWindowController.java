@@ -9,7 +9,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
@@ -42,6 +45,7 @@ public class DetailsWindowController implements Initializable {
     public void setTextPRENOM(String message) {
         this.tfPRENOM.setText(message);
     }
+
 
 
 
