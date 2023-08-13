@@ -38,17 +38,15 @@ import javax.swing.table.TableModel;
 // ... (imports and other code)
 public class SampleController implements Initializable {
 
-    @FXML
     private TableView<Personne> table;
-    @FXML
     private TableColumn<TableModel, String> nom;
-    @FXML
     private TableColumn<TableModel, String> prenom;
-    @FXML
     private TableColumn<TableModel, String> id;
     public ObservableList<Personne> listView = FXCollections.observableArrayList();
     @FXML
     private Button addnew;
+    @FXML
+    private Button addnew1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -109,5 +107,9 @@ public class SampleController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Error:" + ex.getMessage());
         }
+    }
+
+    @FXML
+    private void sendEmail(ActionEvent event) {
     }
 }

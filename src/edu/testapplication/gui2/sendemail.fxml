@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="911.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.SendemailController">
+   <stylesheets>
+      <URL value="@sample.css" />
+   </stylesheets>
+   <children>
+      <BorderPane layoutX="-1.0" prefHeight="602.0" prefWidth="911.0">
+         <left>
+            <VBox prefHeight="575.0" prefWidth="178.0" style="-fx-background-color: #6F5CC2;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="178.0" stylesheets="@sample.css" text="Profile" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/profile.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="30.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Users" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="56.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Projects" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/projects.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="101.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Tasks" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/tasks.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="147.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Logs" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/log.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../icons/chat.png" />
+                     </image>
+                  </ImageView>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="192.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Chats" textFill="WHITE">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="238.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Reports" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="858.0" style="-fx-background-color: #52438F;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label graphicTextGap="10.0" text="KeepToo MList" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/signature.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <TabPane prefHeight="515.0" prefWidth="693.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab text="Members">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="716.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="858.0" spacing="10.0">
+                                 <children>
+                                    <Label graphicTextGap="10.0" text="Members" textFill="#6e6969">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="addnew" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="add new" textFill="#52438f" />
+                                    <Button layoutX="132.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="143.0" styleClass="button2" stylesheets="@sample.css" text="Import members" textFill="#52438f" />
+                                    <Button layoutX="224.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" styleClass="button2" stylesheets="@sample.css" text="export members(Excel)" textFill="#52438f" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="35.0" />
+                                 </padding>
+                              </HBox>
+                              <Pane layoutX="27.0" layoutY="62.0" prefHeight="410.0" prefWidth="238.0" styleClass="container" stylesheets="@sendemail.css">
+                                 <children>
+                                    <Pane layoutX="15.0" layoutY="44.0" prefHeight="95.0" prefWidth="176.0" styleClass="container" stylesheets="@sendemail.css">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="5.0" prefHeight="29.0" prefWidth="55.0" styleClass="card-title" stylesheets="@sendemail.css" text="Subject">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="178.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <Label layoutX="22.0" layoutY="34.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Email Tittle" textFill="#0000009d">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="251.0" styleClass="title" stylesheets="@sendemail.css" text="Sending Information">
+                                       <font>
+                                          <Font size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane layoutX="15.0" layoutY="145.0" prefHeight="150.0" prefWidth="176.0" styleClass="container" stylesheets="@sendemail.css">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="5.0" prefHeight="29.0" prefWidth="90.0" styleClass="card-title" stylesheets="@sendemail.css" text="Sender Email">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <Label layoutX="22.0" layoutY="34.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Email" textFill="#0000009d">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="13.0" layoutY="113.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <Label layoutX="22.0" layoutY="95.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Pasword" textFill="#0000009d">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="15.0" layoutY="301.0" prefHeight="95.0" prefWidth="176.0" styleClass="container" stylesheets="@sendemail.css">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="5.0" prefHeight="29.0" prefWidth="55.0" styleClass="card-title" stylesheets="@sendemail.css" text="To">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="13.0" layoutY="47.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <Label layoutX="13.0" layoutY="25.0" prefHeight="18.0" prefWidth="34.0" styleClass="txt" stylesheets="@sendemail.css" text="Email " textFill="#0000009d">
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="290.0" layoutY="60.0" prefHeight="414.0" prefWidth="334.0" styleClass="container" stylesheets="@sendemail.css">
+                                 <children>
+                                    <Label layoutX="22.0" layoutY="8.0" prefHeight="29.0" prefWidth="55.0" styleClass="card-title" stylesheets="@sendemail.css" text="Body">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="14.0" layoutY="37.0" prefHeight="107.0" prefWidth="312.0" />
+                                 </children>
+                              </Pane>
+                              <Button fx:id="bsend" layoutX="637.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" textFill="#52438f" />
+                              <Button fx:id="testmail" layoutX="637.0" layoutY="267.0" mnemonicParsing="false" onAction="#testmails" text="Button" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Admins">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="858.0" style="-fx-background-color: #52438F;">
+                                 <children>
+                                    <Label graphicTextGap="10.0" text="KeepToo MList" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="35.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
