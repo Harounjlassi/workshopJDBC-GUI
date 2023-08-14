@@ -88,15 +88,17 @@
                         <Insets left="20.0" />
                      </padding>
                   </Button>
-                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../icons/chat.png" />
-                     </image>
-                  </ImageView>
                   <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="192.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Chats" textFill="WHITE">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../icons/chat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                   <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="238.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="183.0" stylesheets="@sample.css" text="Reports" textFill="WHITE">
                      <graphic>
@@ -166,11 +168,6 @@
                                              </font>
                                           </Label>
                                           <TextField fx:id="mSubject" layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="178.0" styleClass="field" stylesheets="@sendemail.css" />
-                                          <Label layoutX="22.0" layoutY="34.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Email Tittle" textFill="#0000009d">
-                                             <font>
-                                                <Font size="10.0" />
-                                             </font>
-                                          </Label>
                                        </children>
                                     </Pane>
                                     <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="251.0" styleClass="title" stylesheets="@sendemail.css" text="Sending Information">
@@ -224,6 +221,12 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="mBody" layoutX="14.0" layoutY="37.0" prefHeight="106.0" prefWidth="312.0" />
+                                    <Button fx:id="addfile" layoutX="103.0" layoutY="163.0" mnemonicParsing="false" onAction="#addfileaction" prefHeight="34.0" prefWidth="101.0" styleClass="button2" stylesheets="@sample.css" text="add new File" textFill="#52438f" />
+                                    <Label layoutX="22.0" layoutY="163.0" prefHeight="29.0" prefWidth="91.0" styleClass="card-title" stylesheets="@sendemail.css" text="File Choose">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </Pane>
                               <Button fx:id="bsend" layoutX="637.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" textFill="#52438f" />

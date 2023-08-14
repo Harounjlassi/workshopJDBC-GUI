@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.embed.swing.SwingFXUtils;
 
@@ -22,6 +24,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
 import javax.mail.Message;
@@ -60,10 +64,13 @@ public class SendemailController implements Initializable {
     private TextField mto;
     @FXML
     private TextField mBody;
+    @FXML
+    private Button addfile;
 
     /**
      * Initializes the controller class.
      */
+    String filePath="";
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -123,13 +130,19 @@ public class SendemailController implements Initializable {
         String mtotext = mto.getText();
 
         String mbodyext = mBody.getText();
-        
+//String username = "yhhhgtub@gmail.com";
+//        String password = "jivbqbklkkkwqvpk";
+//        String fromEmail = "yhhhgtub@gmail.com";
+//        String toEmail = "jlsshrn8621@gmail.com";
 
-        mailsend(mailtext,mMailpasstext,mailtext,mtotext,mSubjecttext);
+//System.out.println(filePath);
+
+        mailsend(mailtext,mMailpasstext, mailtext,mtotext, mSubjecttext,mbodyext,filePath);
     }
 
-    void mailsend( final String username,final String password,String fromEmail,String toEmail,String subject) {
+    void mailsend(String username, String password, String fromEmail, String toEmail, String subject,String mbodyext,String filep) {
 
+        //authentication info
         
 
         Properties properties = new Properties();
@@ -150,19 +163,20 @@ public class SendemailController implements Initializable {
         try {
             msg.setFrom(new InternetAddress(fromEmail));
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            msg.setSubject("ds p");
+            msg.setSubject(subject);
 
             Multipart emailContent = new MimeMultipart();
 
             //Text body part
             MimeBodyPart textBodyPart = new MimeBodyPart();
-            textBodyPart.setText(subject);
+            textBodyPart.setText(mbodyext);
 
             //Attachment body part.
             MimeBodyPart pdfAttachment = new MimeBodyPart();
             try {
-                pdfAttachment.attachFile("C:/Users/msi/Documents/scrum.pdf");
+                pdfAttachment.attachFile(filep);
             } catch (IOException ex) {
+                Logger.getLogger(SendemailController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             //Attach body parts
@@ -177,7 +191,27 @@ public class SendemailController implements Initializable {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        // TODO Auto-generated catch block
     }
 
-}
+    @FXML
+    private void addfileaction(ActionEvent event) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\")); // Set the initial directory
+
+        // Show the file dialog and get the selected file
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+
+        if (selectedFile != null) {
+             filePath = selectedFile.getAbsolutePath();
+            System.out.println("Chosen File: " + filePath);
+            
+            // Now you can use the filePath for further processing
+        } else {
+            System.out.println("No file selected.");
+        }
+   
+    }
+
+    }
+
