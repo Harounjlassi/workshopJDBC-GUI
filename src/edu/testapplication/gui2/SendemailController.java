@@ -20,6 +20,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -188,8 +189,17 @@ public class SendemailController implements Initializable {
 
             Transport.send(msg);
             System.out.println("Sent message");
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+    successAlert.setTitle("Email Sent");
+    successAlert.setContentText("The email was sent successfully.");
+    successAlert.showAndWait();
         } catch (MessagingException e) {
             e.printStackTrace();
+            
+             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+    errorAlert.setTitle("Email Sending Error");
+    errorAlert.setContentText("An error occurred while sending the email:\n" + e.getMessage());
+    errorAlert.showAndWait();
         }
     }
 
