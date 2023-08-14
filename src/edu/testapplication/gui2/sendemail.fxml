@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="911.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.SendemailController">
+<AnchorPane id="AnchorPane" maxHeight="602.0" maxWidth="1064.0" prefHeight="602.0" prefWidth="910.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.SendemailController">
    <stylesheets>
       <URL value="@sample.css" />
    </stylesheets>
@@ -139,9 +139,9 @@
                <tabs>
                   <Tab text="Members">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="716.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="743.0">
                            <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="858.0" spacing="10.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="734.0" spacing="10.0">
                                  <children>
                                     <Label graphicTextGap="10.0" text="Members" textFill="#6e6969">
                                        <font>
@@ -165,7 +165,7 @@
                                                 <Font size="15.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="178.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <TextField fx:id="mSubject" layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="178.0" styleClass="field" stylesheets="@sendemail.css" />
                                           <Label layoutX="22.0" layoutY="34.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Email Tittle" textFill="#0000009d">
                                              <font>
                                                 <Font size="10.0" />
@@ -185,13 +185,13 @@
                                                 <Font size="15.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <TextField fx:id="mMails" layoutX="13.0" layoutY="52.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
                                           <Label layoutX="22.0" layoutY="34.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Email" textFill="#0000009d">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="13.0" layoutY="113.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <TextField fx:id="mMailpass" layoutX="13.0" layoutY="113.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
                                           <Label layoutX="22.0" layoutY="95.0" prefHeight="18.0" prefWidth="56.0" styleClass="txt" stylesheets="@sendemail.css" text="Pasword" textFill="#0000009d">
                                              <font>
                                                 <Font size="10.0" />
@@ -206,8 +206,8 @@
                                                 <Font size="15.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="13.0" layoutY="47.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
-                                          <Label layoutX="13.0" layoutY="25.0" prefHeight="18.0" prefWidth="34.0" styleClass="txt" stylesheets="@sendemail.css" text="Email " textFill="#0000009d">
+                                          <TextField fx:id="mto" layoutX="13.0" layoutY="47.0" prefHeight="12.0" prefWidth="160.0" styleClass="field" stylesheets="@sendemail.css" />
+                                          <Label layoutX="13.0" layoutY="25.0" prefHeight="18.0" prefWidth="43.0" styleClass="txt" stylesheets="@sendemail.css" text="Email " textFill="#0000009d">
                                              <font>
                                                 <Font size="10.0" />
                                              </font>
@@ -223,11 +223,11 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <TextField layoutX="14.0" layoutY="37.0" prefHeight="107.0" prefWidth="312.0" />
+                                    <TextField fx:id="mBody" layoutX="14.0" layoutY="37.0" prefHeight="106.0" prefWidth="312.0" />
                                  </children>
                               </Pane>
                               <Button fx:id="bsend" layoutX="637.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" textFill="#52438f" />
-                              <Button fx:id="testmail" layoutX="637.0" layoutY="267.0" mnemonicParsing="false" onAction="#testmails" text="Button" />
+                              <Button fx:id="testmail" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#testmails" prefHeight="37.0" prefWidth="80.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d" />
                            </children>
                         </AnchorPane>
                      </content>

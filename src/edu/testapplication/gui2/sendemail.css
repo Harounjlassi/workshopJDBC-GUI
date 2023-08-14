@@ -63,7 +63,7 @@
 }
 
 .field {
-    -fx-pref-width: 250px;
+    -fx-pref-width: 150px;
     -fx-pref-height: 30px;
     -fx-font-size: 14px;
     -jfx-label-float: true;

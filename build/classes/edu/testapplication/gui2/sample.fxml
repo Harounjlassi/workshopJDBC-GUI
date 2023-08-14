@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="857.0"  xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.SampleController">
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.SampleController">
     <stylesheets>
         <URL value="@sample.css" />
     </stylesheets>
@@ -153,7 +153,7 @@
                                           <Button fx:id="addnew" mnemonicParsing="false" onAction="#addnewmember" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="add new" textFill="#52438f" />
                                           <Button layoutX="132.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="143.0" styleClass="button2" stylesheets="@sample.css" text="Import members" textFill="#52438f" />
                                           <Button layoutX="224.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" styleClass="button2" stylesheets="@sample.css" text="export members(Excel)" textFill="#52438f" />
-                                          <Button fx:id="addnew1" mnemonicParsing="false" onAction="#sendEmail" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="Send Email" textFill="#52438f" />
+                                          <Button fx:id="sendmail" mnemonicParsing="false" onAction="#sendmail" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="sendmail" textFill="#52438f" />
                                        </children>
                                        <padding>
                                           <Insets left="35.0" />

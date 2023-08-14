@@ -21,13 +21,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.table.TableModel;
 
 /**
@@ -38,15 +41,19 @@ import javax.swing.table.TableModel;
 // ... (imports and other code)
 public class SampleController implements Initializable {
 
+    @FXML
     private TableView<Personne> table;
+    @FXML
     private TableColumn<TableModel, String> nom;
+    @FXML
     private TableColumn<TableModel, String> prenom;
+    @FXML
     private TableColumn<TableModel, String> id;
     public ObservableList<Personne> listView = FXCollections.observableArrayList();
     @FXML
     private Button addnew;
     @FXML
-    private Button addnew1;
+    private Button sendmail;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,14 +69,14 @@ public class SampleController implements Initializable {
                 alert.setTitle("Test Connection");
                 alert.setContentText("Connect to the database failed!");
 
-                alert.showAndWait();
+                alert.show();
 
             } else {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Test Connection");
                 alert.setContentText("Connect to the database successfully!");
 
-                alert.showAndWait();
+                alert.show();
 
                 PersonneCrud pcd = new PersonneCrud();
 
@@ -87,13 +94,12 @@ public class SampleController implements Initializable {
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            // Handle the exception gracefully, e.g., show a message to the user
-            // and continue with other parts of your application.
+          
         }
-
+ id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+       
         table.setItems(listView);
 
     }
@@ -110,6 +116,24 @@ public class SampleController implements Initializable {
     }
 
     @FXML
-    private void sendEmail(ActionEvent event) {
-    }
+    private void sendmail(ActionEvent event) {
+        double x ,y=0;
+  FXMLLoader loader = new FXMLLoader(getClass().getResource("sendemail.fxml"));
+        try {
+            Parent root = loader.load();
+         Scene scene = new Scene(root, 910, 602); // Create the scene with the desired dimensions
+        
+        Stage stage = (Stage) table.getScene().getWindow(); // Get the current stage
+        stage.setScene(scene); // Set the new scene
+            //Scene scene=table.getScene();
+            
+            scene.setRoot(root);
+        } catch (IOException ex) {
+            System.out.println("Error:" + ex.getMessage());
+        }    }
+    
+    
+    
+    
+ 
 }

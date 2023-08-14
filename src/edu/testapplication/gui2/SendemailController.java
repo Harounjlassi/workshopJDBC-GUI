@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javax.imageio.ImageIO;
@@ -42,16 +43,23 @@ import javax.mail.internet.MimeMultipart;
  */
 public class SendemailController implements Initializable {
 
-    private Button scancel;
     @FXML
     private Button testmail;
-    @FXML
-    private Button addnew;
-   
+
     @FXML
     private Button bsend;
-
-  
+    @FXML
+    private Button addnew;
+    @FXML
+    private TextField mSubject;
+    @FXML
+    private TextField mMails;
+    @FXML
+    private TextField mMailpass;
+    @FXML
+    private TextField mto;
+    @FXML
+    private TextField mBody;
 
     /**
      * Initializes the controller class.
@@ -82,45 +90,47 @@ public class SendemailController implements Initializable {
             // Further processing with the ImageView
         }
         view.setFitHeight(45);
-        //view.setPreserveRatio(true);
+        view.setPreserveRatio(true);
         //Creating a Button
 
         //Setting the location of the button
-//      bsend.setTranslateX(25);
-//      bsend.setTranslateY(25);
+        //bsend.setTranslateX(25);
+        //bsend.setTranslateY(25);
         //Setting the size of the button
-        testmail.setPrefSize(45,
-                 45);
+        testmail.setPrefSize(45, 45);
         //Setting a graphic to the button
         testmail.setGraphic(view);
 
         view2.setFitHeight(45);
-        //view2.setPreserveRatio(true);
+        view2.setPreserveRatio(true);
         //Creating a Button
 
         //Setting the location of the button
-//      bsend.setTranslateX(25);
-//      bsend.setTranslateY(25);
+        //bsend.setTranslateX(25);
+        //bsend.setTranslateY(25);
         //Setting the size of the button
-        //scancel.setPrefSize(45,45);
+        bsend.setPrefSize(45, 45);
         //Setting a graphic to the button
-        //scancel.setGraphic(view2);
+        bsend.setGraphic(view2);
 
     }
-
 
     @FXML
     private void testmails(ActionEvent event) {
-        mailsend();
+        String mSubjecttext = mSubject.getText();
+        String mailtext = mMails.getText();
+        String mMailpasstext = mMailpass.getText();
+        String mtotext = mto.getText();
+
+        String mbodyext = mBody.getText();
+        
+
+        mailsend(mailtext,mMailpasstext,mailtext,mtotext,mSubjecttext);
     }
 
-    void mailsend() {
+    void mailsend( final String username,final String password,String fromEmail,String toEmail,String subject) {
 
-        //authentication info
-        final String username = "yhhhgtub@gmail.com";
-        final String password = "jivbqbklkkkwqvpk";
-        String fromEmail = "yhhhgtub@gmail.com";
-        String toEmail = "jlsshrn8621@gmail.com";
+        
 
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -146,7 +156,7 @@ public class SendemailController implements Initializable {
 
             //Text body part
             MimeBodyPart textBodyPart = new MimeBodyPart();
-            textBodyPart.setText("My multipart text");
+            textBodyPart.setText(subject);
 
             //Attachment body part.
             MimeBodyPart pdfAttachment = new MimeBodyPart();
@@ -169,7 +179,5 @@ public class SendemailController implements Initializable {
         }
         // TODO Auto-generated catch block
     }
-
-
 
 }
