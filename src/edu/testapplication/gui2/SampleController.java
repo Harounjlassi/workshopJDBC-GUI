@@ -8,20 +8,25 @@ package edu.testapplication.gui2;
 import edu.esprit.entities.Personne;
 import edu.esprit.entities.PersonneCrud;
 import edu.esprit.utils.MyConnection;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,8 +35,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 import javax.swing.table.TableModel;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * FXML Controller class
@@ -54,6 +63,8 @@ public class SampleController implements Initializable {
     private Button addnew;
     @FXML
     private Button sendmail;
+    @FXML
+    private Button btnexcel;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -94,12 +105,12 @@ public class SampleController implements Initializable {
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-          
+
         }
- id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-       
+
         table.setItems(listView);
 
     }
@@ -117,23 +128,70 @@ public class SampleController implements Initializable {
 
     @FXML
     private void sendmail(ActionEvent event) {
-        double x ,y=0;
-  FXMLLoader loader = new FXMLLoader(getClass().getResource("sendemail.fxml"));
+        double x, y = 0;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sendemail.fxml"));
         try {
             Parent root = loader.load();
-         Scene scene = new Scene(root, 910, 602); // Create the scene with the desired dimensions
-        
-        Stage stage = (Stage) table.getScene().getWindow(); // Get the current stage
-        stage.setScene(scene); // Set the new scene
+            Scene scene = new Scene(root, 910, 602); // Create the scene with the desired dimensions
+
+            Stage stage = (Stage) table.getScene().getWindow(); // Get the current stage
+            stage.setScene(scene); // Set the new scene
             //Scene scene=table.getScene();
-            
+
             scene.setRoot(root);
         } catch (IOException ex) {
             System.out.println("Error:" + ex.getMessage());
-        }    }
-    
-    
-    
-    
- 
+        }
+    }
+
+    @FXML
+    private void excelexport(ActionEvent event) {
+
+        try {
+            Connection cnx2 = MyConnection.getInstance().getCnx();
+
+            String requet2 = "SELECT * FROM personne";
+            PreparedStatement  st = cnx2.prepareStatement(requet2);
+            ResultSet rs = st.executeQuery();
+            XSSFWorkbook wb = new XSSFWorkbook();//for earlier version use HSSF
+            XSSFSheet sheet = wb.createSheet("user deatails");
+            XSSFRow header = sheet.createRow(0);
+            header.createCell(0).setCellValue("Id");
+            header.createCell(1).setCellValue("Name");
+            header.createCell(2).setCellValue("surname");
+            int index = 1;
+            while (rs.next()) {
+                XSSFRow row = sheet.createRow(index);
+                row.createCell(0).setCellValue(rs.getString("id"));
+                row.createCell(1).setCellValue(rs.getString("nom"));
+                row.createCell(2).setCellValue(rs.getString("prenom"));
+                index++; 
+
+            }
+            FileOutputStream fileOut=null;
+            try {
+                fileOut = new FileOutputStream("user.xlsx");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(SampleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                wb.write(fileOut);
+            } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Test Connection");
+                alert.setContentText("Connect to the database successfully!");
+
+                alert.show();
+                cnx2.close();
+                rs.close();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+    }
+
 }

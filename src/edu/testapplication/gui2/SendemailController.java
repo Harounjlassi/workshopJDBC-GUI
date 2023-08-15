@@ -214,11 +214,11 @@ public class SendemailController implements Initializable {
 
         if (selectedFile != null) {
              filePath = selectedFile.getAbsolutePath();
-            System.out.println("Chosen File: " + filePath);
+            //System.out.println("Chosen File: " + filePath);
             
             // Now you can use the filePath for further processing
         } else {
-            System.out.println("No file selected.");
+            //System.out.println("No file selected.");
         }
    
     }
