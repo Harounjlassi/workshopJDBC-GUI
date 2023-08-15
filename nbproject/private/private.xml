@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/sendemail.css</file>
-            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/sendemail.fxml</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/DetailsWindowController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/esprit/entities/Personne.java</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/SampleController.java</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/InscriptionController.java</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/sample.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/esprit/test/MainClass.java</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/sample.fxml</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/firstWindow.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/esprit/utils/MyConnection.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/esprit/entities/PersonneCrud.java</file>
             <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/SendemailController.java</file>
-            <file>file:/C:/Users/msi/Documents/NetBeansProjects/workshopJDBC/src/edu/testapplication/gui2/test.java</file>
         </group>
     </open-files>
 </project-private>

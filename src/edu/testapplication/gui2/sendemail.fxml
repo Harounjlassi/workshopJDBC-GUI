@@ -130,6 +130,16 @@
                         <Font name="Berlin Sans FB" size="20.0" />
                      </font>
                   </Label>
+                  <Button fx:id="backMail" mnemonicParsing="false" onAction="#backMailmethod" prefHeight="35.0" prefWidth="44.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d">
+                     <HBox.margin>
+                        <Insets left="600.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="close" mnemonicParsing="false" onAction="#closemethod" prefHeight="35.0" prefWidth="44.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <padding>
                   <Insets left="35.0" />
@@ -229,8 +239,8 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Button fx:id="bsend" layoutX="637.0" layoutY="194.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" textFill="#52438f" />
-                              <Button fx:id="testmail" layoutX="638.0" layoutY="110.0" mnemonicParsing="false" onAction="#testmails" prefHeight="37.0" prefWidth="80.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d" />
+                              <Button fx:id="bsend" layoutX="637.0" layoutY="105.0" mnemonicParsing="false" onAction="#testmails" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" textFill="#52438f" />
+                              <Button fx:id="cancelmail" layoutX="640.0" layoutY="173.0" mnemonicParsing="false" onAction="#cancelmailfunction" prefHeight="37.0" prefWidth="80.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d" />
                            </children>
                         </AnchorPane>
                      </content>

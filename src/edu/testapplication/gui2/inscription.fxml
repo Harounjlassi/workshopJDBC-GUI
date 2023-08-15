@@ -15,12 +15,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="857.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.InscriptionController">
+<AnchorPane id="AnchorPane" maxHeight="602.0" maxWidth="1064.0" prefHeight="602.0" prefWidth="910.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.testapplication.gui2.InscriptionController">
    <stylesheets>
       <URL value="@sample.css" />
    </stylesheets>
    <children>
-      <BorderPane layoutX="-1.0" prefHeight="576.0" prefWidth="858.0">
+      <BorderPane layoutX="-1.0" prefHeight="602.0" prefWidth="910.0">
          <left>
             <VBox prefHeight="575.0" prefWidth="178.0" style="-fx-background-color: #6F5CC2;" BorderPane.alignment="CENTER">
                <children>
@@ -129,6 +129,16 @@
                         <Font name="Berlin Sans FB" size="20.0" />
                      </font>
                   </Label>
+                  <Button fx:id="backMail" mnemonicParsing="false" onAction="#backMailmethod" prefHeight="35.0" prefWidth="44.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d">
+                     <HBox.margin>
+                        <Insets left="600.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="close" mnemonicParsing="false" onAction="#closemethod" prefHeight="35.0" prefWidth="44.0" styleClass="button2" stylesheets="@sample.css" textFill="#ae6d6d">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <padding>
                   <Insets left="35.0" />
@@ -140,7 +150,7 @@
                <tabs>
                   <Tab text="Members">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="481.0" prefWidth="702.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="858.0" spacing="10.0">
                                  <children>
@@ -152,23 +162,24 @@
                                     <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="add new" textFill="#52438f" />
                                     <Button layoutX="132.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="143.0" styleClass="button2" stylesheets="@sample.css" text="Import members" textFill="#52438f" />
                                     <Button layoutX="224.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" styleClass="button2" stylesheets="@sample.css" text="export members(Excel)" textFill="#52438f" />
+                                    <Button fx:id="sendmail" mnemonicParsing="false" onAction="#sendmail" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="sendmail" textFill="#52438f" />
                                  </children>
                                  <padding>
                                     <Insets left="35.0" />
                                  </padding>
                               </HBox>
-                              <TextField fx:id="tfId" layoutX="39.0" layoutY="150.0" />
-                              <TextField fx:id="tfNom" layoutX="246.0" layoutY="150.0" prefHeight="26.0" prefWidth="151.0" />
-                              <TextField layoutX="39.0" layoutY="224.0" prefHeight="26.0" prefWidth="360.0" />
-                              <Label layoutX="42.0" layoutY="123.0" text="Id" />
-                              <Label layoutX="246.0" layoutY="122.0" prefHeight="18.0" prefWidth="44.0" text="Name" />
-                              <Label layoutX="42.0" layoutY="199.0" text="Adresse" />
-                              <Label layoutX="39.0" layoutY="291.0" text="Surname" />
-                              <Label layoutX="246.0" layoutY="291.0" text="Email adresse" />
-                              <TextField fx:id="tfPrenom" layoutX="39.0" layoutY="322.0" />
-                              <TextField layoutX="245.0" layoutY="322.0" prefHeight="5.0" prefWidth="150.0" />
-                              <Button layoutX="313.0" layoutY="371.0" mnemonicParsing="false" onAction="#addnewmember" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="Add" textFill="#52438f" />
-                              <Button layoutX="205.0" layoutY="371.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="Cancel" textFill="#52438f" />
+                              <TextField fx:id="tfId" layoutX="149.0" layoutY="150.0" />
+                              <TextField fx:id="tfNom" layoutX="356.0" layoutY="150.0" prefHeight="26.0" prefWidth="151.0" />
+                              <TextField layoutX="149.0" layoutY="224.0" prefHeight="26.0" prefWidth="360.0" />
+                              <Label layoutX="152.0" layoutY="123.0" text="Id" />
+                              <Label layoutX="356.0" layoutY="122.0" prefHeight="18.0" prefWidth="44.0" text="Name" />
+                              <Label layoutX="152.0" layoutY="199.0" text="Adresse" />
+                              <Label layoutX="149.0" layoutY="291.0" text="Surname" />
+                              <Label layoutX="356.0" layoutY="291.0" text="Email adresse" />
+                              <TextField fx:id="tfPrenom" layoutX="149.0" layoutY="322.0" />
+                              <TextField layoutX="355.0" layoutY="322.0" prefHeight="5.0" prefWidth="150.0" />
+                              <Button layoutX="423.0" layoutY="371.0" mnemonicParsing="false" onAction="#addnewmember" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="Add" textFill="#52438f" />
+                              <Button layoutX="315.0" layoutY="371.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="button2" stylesheets="@sample.css" text="Cancel" textFill="#52438f" />
                            </children>
                         </AnchorPane>
                      </content>

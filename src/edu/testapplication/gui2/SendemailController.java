@@ -5,6 +5,8 @@
  */
 package edu.testapplication.gui2;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,12 +21,16 @@ import javafx.embed.swing.SwingFXUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -49,9 +55,6 @@ import javax.mail.internet.MimeMultipart;
 public class SendemailController implements Initializable {
 
     @FXML
-    private Button testmail;
-
-    @FXML
     private Button bsend;
     @FXML
     private Button addnew;
@@ -71,55 +74,96 @@ public class SendemailController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    String filePath="";
+    String filePath = "";
+    @FXML
+    private Button backMail;
+    @FXML
+    private Button cancelmail;
+    @FXML
+    private Button close;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        String path = System.getProperty("user.home");
+//        String path = System.getProperty("user.home");
+//
+//        //Creating a graphic (image)
+//        BufferedImage img = null;
+//        BufferedImage img2 = null;
+//
+//        try {
+//            img = ImageIO.read(new File(path + "\\Documents\\NetBeansProjects\\workshopJDBC\\src\\icons\\send.png"));
+//            img2 = ImageIO.read(new File(path + "\\Documents\\NetBeansProjects\\workshopJDBC\\src\\icons\\cancel.png"));
+//
+//        } catch (IOException ex) {
+//        }
+//        ImageView view = null;
+//        ImageView view2 = null;
+//
+//        if (img != null) {
+//            WritableImage image = SwingFXUtils.toFXImage(img, null); // Convert BufferedImage to Image
+//            view = new ImageView(image);
+//            WritableImage image2 = SwingFXUtils.toFXImage(img2, null); // Convert BufferedImage to Image
+//            view2 = new ImageView(image2);
+//            // Further processing with the ImageView
+//        }
+//        view.setFitHeight(45);
+//        view.setPreserveRatio(true);
+//        //Creating a Button
+//
+//        //Setting the location of the button
+//        //bsend.setTranslateX(25);
+//        //bsend.setTranslateY(25);
+//        //Setting the size of the button
+//        testmail.setPrefSize(45, 45);
+//        //Setting a graphic to the button
+//        testmail.setGraphic(view);
+//
+//        view2.setFitHeight(45);
+//        view2.setPreserveRatio(true);
+//        //Creating a Button
+//
+//        //Setting the location of the button
+//        //bsend.setTranslateX(25);
+//        //bsend.setTranslateY(25);
+//        //Setting the size of the button
+//        bsend.setPrefSize(45, 45);
+//        //Setting a graphic to the button
+//        bsend.setGraphic(view2);
+        bsend.setStyle("-fx-background-color: transparent;");
+        cancelmail.setStyle("-fx-background-color: transparent;");
+        backMail.setStyle("-fx-background-color: transparent;");
+        close.setStyle("-fx-background-color: transparent;");
 
-        //Creating a graphic (image)
-        BufferedImage img = null;
-        BufferedImage img2 = null;
+        FontAwesomeIconView sendIcon = new FontAwesomeIconView(FontAwesomeIcon.SEND);
+        sendIcon.setStyle(
+                " -fx-cursor: hand ;"
+                + "-glyph-size:28px;"
+                + "-fx-fill:#2196f3;"
+        );
 
-        try {
-            img = ImageIO.read(new File(path + "\\Documents\\NetBeansProjects\\workshopJDBC\\src\\icons\\send.png"));
-            img2 = ImageIO.read(new File(path + "\\Documents\\NetBeansProjects\\workshopJDBC\\src\\icons\\cancel.png"));
-
-        } catch (IOException ex) {
-        }
-        ImageView view = null;
-        ImageView view2 = null;
-
-        if (img != null) {
-            WritableImage image = SwingFXUtils.toFXImage(img, null); // Convert BufferedImage to Image
-            view = new ImageView(image);
-            WritableImage image2 = SwingFXUtils.toFXImage(img2, null); // Convert BufferedImage to Image
-            view2 = new ImageView(image2);
-            // Further processing with the ImageView
-        }
-        view.setFitHeight(45);
-        view.setPreserveRatio(true);
-        //Creating a Button
-
-        //Setting the location of the button
-        //bsend.setTranslateX(25);
-        //bsend.setTranslateY(25);
-        //Setting the size of the button
-        testmail.setPrefSize(45, 45);
-        //Setting a graphic to the button
-        testmail.setGraphic(view);
-
-        view2.setFitHeight(45);
-        view2.setPreserveRatio(true);
-        //Creating a Button
-
-        //Setting the location of the button
-        //bsend.setTranslateX(25);
-        //bsend.setTranslateY(25);
-        //Setting the size of the button
-        bsend.setPrefSize(45, 45);
-        //Setting a graphic to the button
-        bsend.setGraphic(view2);
+        FontAwesomeIconView cancelIcon = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
+        cancelIcon.setStyle(
+                " -fx-cursor: hand ;"
+                + "-glyph-size:28px;"
+                + "-fx-fill:#2196f3;"
+        );
+        FontAwesomeIconView back = new FontAwesomeIconView(FontAwesomeIcon.BACKWARD);
+        back.setStyle(
+                " -fx-cursor: hand ;"
+                + "-glyph-size:28px;"
+                + "-fx-fill:#ffffff;"
+        );
+        FontAwesomeIconView backtop = new FontAwesomeIconView(FontAwesomeIcon.CLOSE);
+        backtop.setStyle(
+                " -fx-cursor: hand ;"
+                + "-glyph-size:28px;"
+                + "-fx-fill:#ffffff;"
+        );
+        bsend.setGraphic(sendIcon);
+        backMail.setGraphic(back);
+        cancelmail.setGraphic(cancelIcon);
+        close.setGraphic(backtop);
 
     }
 
@@ -137,15 +181,12 @@ public class SendemailController implements Initializable {
 //        String toEmail = "jlsshrn8621@gmail.com";
 
 //System.out.println(filePath);
-
-        mailsend(mailtext,mMailpasstext, mailtext,mtotext, mSubjecttext,mbodyext,filePath);
+        mailsend(mailtext, mMailpasstext, mailtext, mtotext, mSubjecttext, mbodyext, filePath);
     }
 
-    void mailsend(String username, String password, String fromEmail, String toEmail, String subject,String mbodyext,String filep) {
+    void mailsend(String username, String password, String fromEmail, String toEmail, String subject, String mbodyext, String filep) {
 
         //authentication info
-        
-
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -190,16 +231,16 @@ public class SendemailController implements Initializable {
             Transport.send(msg);
             System.out.println("Sent message");
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-    successAlert.setTitle("Email Sent");
-    successAlert.setContentText("The email was sent successfully.");
-    successAlert.showAndWait();
+            successAlert.setTitle("Email Sent");
+            successAlert.setContentText("The email was sent successfully.");
+            successAlert.showAndWait();
         } catch (MessagingException e) {
             e.printStackTrace();
-            
-             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-    errorAlert.setTitle("Email Sending Error");
-    errorAlert.setContentText("An error occurred while sending the email:\n" + e.getMessage());
-    errorAlert.showAndWait();
+
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Email Sending Error");
+            errorAlert.setContentText("An error occurred while sending the email:\n" + e.getMessage());
+            errorAlert.showAndWait();
         }
     }
 
@@ -213,15 +254,35 @@ public class SendemailController implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(new Stage());
 
         if (selectedFile != null) {
-             filePath = selectedFile.getAbsolutePath();
+            filePath = selectedFile.getAbsolutePath();
             //System.out.println("Chosen File: " + filePath);
-            
+
             // Now you can use the filePath for further processing
         } else {
             //System.out.println("No file selected.");
         }
-   
-    }
 
     }
 
+    @FXML
+    private void backMailmethod(ActionEvent event) {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        try {
+            Parent root = loader.load();
+            bsend.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println("Error:" + ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void cancelmailfunction(ActionEvent event) {
+    }
+
+    @FXML
+    private void closemethod(ActionEvent event) {
+  Stage stage = (Stage) bsend.getScene().getWindow();
+    stage.close();        
+    }
+
+}
