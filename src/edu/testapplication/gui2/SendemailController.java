@@ -177,7 +177,7 @@ public class SendemailController implements Initializable {
             try {
                 pdfAttachment.attachFile(filep);
             } catch (IOException ex) {
-                Logger.getLogger(SendemailController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
 
             //Attach body parts

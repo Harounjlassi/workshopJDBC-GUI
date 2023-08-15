@@ -18,8 +18,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -172,7 +171,7 @@ public class SampleController implements Initializable {
             try {
                 fileOut = new FileOutputStream("user.xlsx");
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(SampleController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
             }
             try {
                 wb.write(fileOut);
@@ -180,8 +179,8 @@ public class SampleController implements Initializable {
             System.out.println(ex.getMessage());
             }
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Test Connection");
-                alert.setContentText("Connect to the database successfully!");
+                alert.setTitle("Excel");
+                alert.setContentText("Excel created successfully!");
 
                 alert.show();
                 cnx2.close();
@@ -189,6 +188,11 @@ public class SampleController implements Initializable {
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Excel");
+                alert.setContentText("failed  create !");
+
+                alert.show();
 
         }
 
